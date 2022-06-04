@@ -52,6 +52,7 @@ export default function Map() {
         className="map-container"
         rounded="2xl"
         shadow="md"
+        h={{ base: "50vh", lg: "54vh", xl: "56vh" }}
       />
     </>
   );

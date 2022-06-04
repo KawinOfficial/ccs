@@ -7,6 +7,7 @@ import {
   AccordionButton,
   AccordionPanel,
   AccordionIcon,
+  TableContainer,
   Table,
   Thead,
   Tbody,
@@ -69,58 +70,60 @@ export default function Export() {
         </Accordion>
 
         {/* Table */}
-        <Table>
-          <Thead
-            bgGradient="linear(to-r,#9bf8f4,#00ff87)"
-            sx={{
-              position: "sticky",
-              top: "0",
-            }}
-          >
-            <Tr>
-              <Th w="2%"></Th>
-              {tableHead.map((info, i) => (
-                <Th key={i} w={info.w} textAlign={info.textAlign}>
-                  <Text fontSize="sm">{info.thai}</Text>
-                  <Text fontSize="smaller">
-                    {info.eng}
-                    {i == 5 && (
-                      <React.Fragment>
-                        (KGCO<sub>2</sub>)
-                      </React.Fragment>
-                    )}
-                  </Text>
-                </Th>
-              ))}
-            </Tr>
-          </Thead>
-          <Tbody>
-            {Array(25)
-              .fill(0)
-              .map((_, i) => (
-                <Tr
-                  key={i}
-                  _hover={{ bgColor: "gray.100" }}
-                  _active={{ bgColor: "gray.200" }}
-                  onClick={onOpen}
-                >
-                  <Td>
-                    <Checkbox />
-                  </Td>
-                  <Td isNumeric pr={10}>
-                    {i + 1}
-                  </Td>
-                  <Td textAlign="center">XXXXX</Td>
-                  <Td>XXXXXXXXXXXXXXXXXXX</Td>
-                  <Td textAlign="center">XX/XX/XXXX</Td>
-                  <Td isNumeric pr={20}>
-                    {(Math.random() * 99 + 1).toFixed(0)}
-                  </Td>
-                  <Td textAlign="center">XXXXX</Td>
-                </Tr>
-              ))}
-          </Tbody>
-        </Table>
+        <TableContainer>
+          <Table>
+            <Thead
+              bgGradient="linear(to-r,#9bf8f4,#00ff87)"
+              sx={{
+                position: "sticky",
+                top: "0",
+              }}
+            >
+              <Tr>
+                <Th w="2%"></Th>
+                {tableHead.map((info, i) => (
+                  <Th key={i} w={info.w} textAlign={info.textAlign}>
+                    <Text fontSize="sm">{info.thai}</Text>
+                    <Text fontSize="smaller">
+                      {info.eng}
+                      {i == 5 && (
+                        <React.Fragment>
+                          (KGCO<sub>2</sub>)
+                        </React.Fragment>
+                      )}
+                    </Text>
+                  </Th>
+                ))}
+              </Tr>
+            </Thead>
+            <Tbody>
+              {Array(25)
+                .fill(0)
+                .map((_, i) => (
+                  <Tr
+                    key={i}
+                    _hover={{ bgColor: "gray.100" }}
+                    _active={{ bgColor: "gray.200" }}
+                    onClick={onOpen}
+                  >
+                    <Td>
+                      <Checkbox />
+                    </Td>
+                    <Td isNumeric pr={10}>
+                      {i + 1}
+                    </Td>
+                    <Td textAlign="center">XXXXX</Td>
+                    <Td>XXXXXXXXXXXXXXXXXXX</Td>
+                    <Td textAlign="center">XX/XX/XXXX</Td>
+                    <Td isNumeric pr={20}>
+                      {(Math.random() * 99 + 1).toFixed(0)}
+                    </Td>
+                    <Td textAlign="center">XXXXX</Td>
+                  </Tr>
+                ))}
+            </Tbody>
+          </Table>
+        </TableContainer>
       </Box>
 
       <TreeModal isOpen={isOpen} onClose={onClose} />

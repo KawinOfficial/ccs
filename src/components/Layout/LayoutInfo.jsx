@@ -10,7 +10,7 @@ const DividerGrid = () => (
 export default function LayoutInfo() {
   const infoOption = [
     { text: "พื้นที่ทั้งหมด", unit: "ตร.ม.", value: "XXX,XXX.XX" },
-    { text: "พื้นที่ต้นไม้โดยประมาณ", unit: "ตร.ม.", value: "XX,XXX.XX" },
+    { text: "พื้นที่ต้นไม้", unit: "ตร.ม.", value: "XX,XXX.XX" },
     { text: "อัตราส่วน", unit: "%", value: "XX.XX" },
   ];
   const gridOption = [
@@ -26,7 +26,12 @@ export default function LayoutInfo() {
         </Text>
 
         {/* Area */}
-        <Grid templateColumns="repeat(5,1fr)" mt={2} alignItems="center">
+        <Grid
+          templateColumns="repeat(5,1fr)"
+          mt={2}
+          alignItems="center"
+          fontSize={{ base: "", lg: "smaller", xl: "md" }}
+        >
           {infoOption.map((info) => (
             <React.Fragment key={info.text}>
               <GridItem colSpan={2} textAlign="left">
@@ -46,7 +51,12 @@ export default function LayoutInfo() {
           <DividerGrid />
 
           {/* Grid */}
-          <GridItem rowSpan={2} fontWeight="bold" fontSize="4xl" color="green">
+          <GridItem
+            rowSpan={2}
+            fontWeight="bold"
+            fontSize={{ base: "2xl", xl: "4xl" }}
+            color="green"
+          >
             G3
           </GridItem>
           {gridOption.map((info) => (
@@ -78,11 +88,11 @@ export default function LayoutInfo() {
           </GridItem>
 
           <GridItem colSpan={2}>
-            <Input variant="filled" />
+            <Input variant="filled" size="sm" />
           </GridItem>
           <GridItem>to</GridItem>
           <GridItem colSpan={2}>
-            <Input variant="filled" />
+            <Input variant="filled" size="sm" />
           </GridItem>
         </Grid>
       </Box>

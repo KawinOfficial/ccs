@@ -38,51 +38,53 @@ export default function LayoutTable() {
 
   return (
     <>
-      <Table size="sm">
-        <Thead
-          bg="gray.100"
-          sx={{
-            position: "sticky",
-            top: "0",
-          }}
-        >
-          <Tr>
-            {tableHead.map((info, i) => (
-              <Th key={i} w={info.w} textAlign={info.textAlign}>
-                <Text>{info.thai}</Text>
-                <Text fontSize="x-small">
-                  {info.eng}
-                  {i == 5 && (
-                    <React.Fragment>
-                      (KGCO<sub>2</sub>)
-                    </React.Fragment>
-                  )}
-                </Text>
-              </Th>
-            ))}
-          </Tr>
-        </Thead>
-        <Tbody>
-          {Array(50)
-            .fill(0)
-            .map((_, i) => (
-              <Tr
-                key={i}
-                _hover={{ bgColor: "gray.100" }}
-                _active={{ bgColor: "gray.200" }}
-                onClick={onOpen}
-              >
-                <Td isNumeric pr={10}>
-                  {i + 1}
-                </Td>
-                <Td textAlign="center">X XX XX</Td>
-                <Td>XXXXXXXXXXXXXXXXXXX</Td>
-                <Td textAlign="center">XX</Td>
-                <Td textAlign="center">XXXXX</Td>
-              </Tr>
-            ))}
-        </Tbody>
-      </Table>
+      <TableContainer>
+        <Table size="sm">
+          <Thead
+            bg="gray.100"
+            sx={{
+              position: "sticky",
+              top: "0",
+            }}
+          >
+            <Tr>
+              {tableHead.map((info, i) => (
+                <Th key={i} w={info.w} textAlign={info.textAlign}>
+                  <Text>{info.thai}</Text>
+                  <Text fontSize="x-small">
+                    {info.eng}
+                    {i == 5 && (
+                      <React.Fragment>
+                        (KGCO<sub>2</sub>)
+                      </React.Fragment>
+                    )}
+                  </Text>
+                </Th>
+              ))}
+            </Tr>
+          </Thead>
+          <Tbody>
+            {Array(50)
+              .fill(0)
+              .map((_, i) => (
+                <Tr
+                  key={i}
+                  _hover={{ bgColor: "gray.100" }}
+                  _active={{ bgColor: "gray.200" }}
+                  onClick={onOpen}
+                >
+                  <Td isNumeric pr={8}>
+                    {i + 1}
+                  </Td>
+                  <Td textAlign="center">X XX XX</Td>
+                  <Td>XXXXXXXXXXXXXXXXXXX</Td>
+                  <Td textAlign="center">XX</Td>
+                  <Td textAlign="center">XXXXX</Td>
+                </Tr>
+              ))}
+          </Tbody>
+        </Table>
+      </TableContainer>
 
       <TreeModal isOpen={isOpen} onClose={onClose} />
     </>

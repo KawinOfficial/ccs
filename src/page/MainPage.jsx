@@ -27,19 +27,19 @@ export default function FactoryLayout() {
         <GridItem colSpan={{ base: 1, xl: 3 }}>
           <Box>
             <Text
-              fontSize="xl"
+              fontSize={{ base: "xl", lg: "md", xl: "xl" }}
               fontWeight="bold"
               textAlign="center"
               position="absolute"
-              w={{ base: "100vw", lg: "30vw" }}
-              mt={3}
+              w={{ base: "100vw", lg: "32vw", xl: "30vw" }}
+              mt={{ base: 1, xl: 3 }}
             >
               ประเภทต้นไม้ (Tree Type)
             </Text>
             <OverallChart />
           </Box>
 
-          <Tabs variant="enclosed" size="sm" isFitted my={2}>
+          <Tabs variant="enclosed" size="sm" isFitted my={1}>
             <TabList>
               <Tab onClick={() => setTab(true)}>ปริมาณต้นไม้สะสม</Tab>
               <Tab onClick={() => setTab(false)}>คาร์บอนเครดิต</Tab>
@@ -72,10 +72,10 @@ export default function FactoryLayout() {
 
           <Grid
             templateColumns={{
-              base: "repeat(2,1fr)",
+              base: "repeat(1,1fr)",
               md: "repeat(3,1fr)",
             }}
-            h="30vh"
+            h={{ base: "60vh", md: "38vh", lg: "30vh" }}
           >
             {/* Information */}
             <GridItem mt={3} px={2}>
@@ -83,7 +83,13 @@ export default function FactoryLayout() {
             </GridItem>
 
             {/* Table */}
-            <GridItem colSpan={2} mt={4} overflowY="auto">
+            <GridItem
+              colSpan={2}
+              mt={4}
+              overflowY="auto"
+              roundedTopLeft="md"
+              roundedTopEnd="3xl"
+            >
               <LayoutTable />
             </GridItem>
           </Grid>

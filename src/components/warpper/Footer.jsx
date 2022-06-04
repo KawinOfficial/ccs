@@ -17,7 +17,7 @@ export default function Footer() {
           <Icon as={FaRegCopyright} color="gray.600" mx={1} />
           <Text fontWeight="semibold">SNC Pyongsan Evolution Co., LTD.</Text>
         </Box>
-        <Text>IIoT-center team</Text>
+        <Text>IIoT-center</Text>
       </Box>
     </>
   );

@@ -16,11 +16,22 @@ import {
 import { FaLeaf, FaFileExport } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { RiPlantFill } from "react-icons/ri";
+import { MdFullscreen } from "react-icons/md";
 import logo from "../img/logo.png";
 import { ZoneSelect, Search } from "../button";
 import { motion } from "framer-motion";
 
 import { useNavigate } from "react-router-dom";
+
+function toggleFullScreen() {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen();
+  } else {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    }
+  }
+}
 
 export default function Nav() {
   const navigate = useNavigate();
@@ -91,9 +102,9 @@ export default function Nav() {
         {/* Logo */}
         <Box onClick={() => navigate("/snc-layout")} pointerEvents="stroke">
           <Image
-            srcSet={logo}
             h="3vh"
-            fallbackSrc="http://10.1.8.114/ccs/assets/logo.63ae820a.png"
+            srcSet={logo}
+            fallbackSrc="http://10.1.8.96/iccs/assets/logo.63ae820a.png"
           />
           <Box color="green" display="flex" alignItems="center">
             <Text fontWeight="bold">iCarbon Credit System</Text>
@@ -111,14 +122,15 @@ export default function Nav() {
             initial="hidden"
             animate="visible"
           >
-            <Box display="flex" gap={5} mr={2}>
-              {window.location.pathname == "/ccs/snc-layout" && (
+            <Box display="flex" gap={5} mr={2} alignItems="center">
+              {window.location.pathname == "/iccs/snc-layout" && (
                 <Search w="30%" />
               )}
               {/* <Search w="30%" /> */}
               <ZoneSelect w="30%" />
               <ExportButton w="30%" />
               <RegisterButton w="30%" />
+              <Icon as={MdFullscreen} onClick={toggleFullScreen} />
             </Box>
           </motion.div>
         )}
