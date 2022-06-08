@@ -104,7 +104,7 @@ export default function Nav() {
           <Image
             h="3vh"
             srcSet={logo}
-            fallbackSrc="http://10.1.8.96/iccs/assets/logo.63ae820a.png"
+            fallbackSrc="http://10.1.8.124/iccs/assets/logo.63ae820a.png"
           />
           <Box color="green" display="flex" alignItems="center">
             <Text fontWeight="bold">iCarbon Credit System</Text>
@@ -123,11 +123,9 @@ export default function Nav() {
             animate="visible"
           >
             <Box display="flex" gap={5} mr={2} alignItems="center">
-              {window.location.pathname == "/iccs/snc-layout" && (
-                <Search w="30%" />
-              )}
-              {/* <Search w="30%" /> */}
-              <ZoneSelect w="30%" />
+              {/* {window.location.pathname == "/iccs/snc-layout" && ( */}
+              <Search w="35%" />
+              {/* )} */}
               <ExportButton w="30%" />
               <RegisterButton w="30%" />
               <Icon as={MdFullscreen} onClick={toggleFullScreen} />
@@ -143,7 +141,6 @@ export default function Nav() {
           <DrawerCloseButton />
 
           <DrawerBody pt={14}>
-            <ZoneSelect textAlign="center" />
             <ExportButton w="100%" my={6} />
             <RegisterButton w="100%" mb={6} />
             {window.location.pathname == "/snc-layout" && <Search w="100%" />}

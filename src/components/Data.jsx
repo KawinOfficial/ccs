@@ -61,3 +61,32 @@ export const areaData = [
     value: 16060,
   },
 ];
+
+export const geojson = {
+  type: "FeatureCollection",
+  features: [
+    {
+      type: "Feature",
+      properties: {
+        description:
+          "<strong>ต้นหูกระจง</strong><p>มีถิ่นกำเนิดในป่าแอฟริกาตะวันตก แถบเส้นศูนย์สูตร ตั้งแต่ประเทศแคเมอรูนไปจนถึงประเทศเซียร์ราลีโอน เป็นพืชเศรษฐกิจ มีการปลูกเพื่อใช้เนื้อไม้ ในแถบถิ่นกำเนิด เป็นไม้ที่มีการเจริญเติบโตเร็ว และมีอายุยืน</p>",
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [101.089512, 12.887337],
+      },
+    },
+    {
+      type: "Feature",
+      properties: {
+        description: `<strong>ต้นพญาสัตบรรณ</strong>
+          <p>(ชื่อวิทยาศาสตร์: Alstonia scholaris)</p>
+          <p>เป็นไม้ยืนต้นขนาดใหญ่มีความสูงประมาณ 12–20 เมตร อยู่ในวงศ์ Apocynaceae มีถิ่นดั้งเดิมในเอเชียตะวันออกเฉียงใต้ และพบได้ทุกภาคในประเทศไทย และเป็นต้นไม้ประจำจังหวัดสมุทรสาคร</p>`,
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [101.088259, 12.887859],
+      },
+    },
+  ],
+};

@@ -93,7 +93,7 @@ export default function Graph({ color, legendArea, legendBar }) {
       </Box>
 
       {/* BarChart */}
-      <ResponsiveContainer height={vh(22)}>
+      <ResponsiveContainer height={vh(21)}>
         <BarChart
           data={barData}
           margin={{

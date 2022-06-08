@@ -20,7 +20,7 @@ export default function ContentWarpper({ content: Content }) {
   };
   return (
     <>
-      <Box px={2}>
+      <Box px={2} bgColor="#f9feff">
         <Nav />
         <AnimatePresence exitBeforeEnter>
           <motion.div

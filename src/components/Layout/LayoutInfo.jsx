@@ -12,10 +12,7 @@ export default function LayoutInfo() {
     { text: "พื้นที่ทั้งหมด", unit: "ตร.ม.", value: "XXX,XXX.XX" },
     { text: "พื้นที่ต้นไม้", unit: "ตร.ม.", value: "XX,XXX.XX" },
     { text: "อัตราส่วน", unit: "%", value: "XX.XX" },
-  ];
-  const gridOption = [
-    { text: "ขนาดพื้นที่", unit: "ตร.ม.", value: "5.00" },
-    { text: "จำนวนต้นไม้", unit: "ต้น", value: "XX" },
+    { text: "คาร์บอนเครดิต", unit: "tCO2", value: "XX.XX" },
   ];
 
   return (
@@ -25,7 +22,6 @@ export default function LayoutInfo() {
           Plant Layout
         </Text>
 
-        {/* Area */}
         <Grid
           templateColumns="repeat(5,1fr)"
           mt={2}
@@ -34,7 +30,7 @@ export default function LayoutInfo() {
         >
           {infoOption.map((info) => (
             <React.Fragment key={info.text}>
-              <GridItem colSpan={2} textAlign="left">
+              <GridItem colSpan={2} textAlign="left" my={1.5}>
                 <Text>{info.text}</Text>
               </GridItem>
               <GridItem colSpan={2} textAlign="end" fontWeight="semibold">
@@ -50,36 +46,9 @@ export default function LayoutInfo() {
 
           <DividerGrid />
 
-          {/* Grid */}
-          <GridItem
-            rowSpan={2}
-            fontWeight="bold"
-            fontSize={{ base: "2xl", xl: "4xl" }}
-            color="green"
-          >
-            G3
-          </GridItem>
-          {gridOption.map((info) => (
-            <React.Fragment key={info.text}>
-              <GridItem colSpan={2} textAlign="left">
-                <Text>{info.text}</Text>
-              </GridItem>
-              <GridItem textAlign="end" fontWeight="semibold" letterSpacing={1}>
-                <Text>{info.value}</Text>
-              </GridItem>
-              <GridItem>
-                <Text textAlign="left" pl={7}>
-                  {info.unit}
-                </Text>
-              </GridItem>
-            </React.Fragment>
-          ))}
-
-          <DividerGrid />
-
           <GridItem colSpan={2}>
             <Text>
-              MtCO<sub>2</sub>
+              tCO<sub>2</sub>
             </Text>
           </GridItem>
           <GridItem />

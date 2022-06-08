@@ -32,7 +32,7 @@ export default function FactoryLayout() {
               textAlign="center"
               position="absolute"
               w={{ base: "100vw", lg: "32vw", xl: "30vw" }}
-              mt={{ base: 1, xl: 3 }}
+              mt={{ base: 1, xl: 2 }}
             >
               ประเภทต้นไม้ (Tree Type)
             </Text>
