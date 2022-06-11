@@ -43,7 +43,7 @@ export default function Login() {
           <Image
             srcSet={logo}
             w={{ base: "30vw", sm: "14vw" }}
-            fallbackSrc="http://10.1.8.124/iccs/assets/logo.63ae820a.png"
+            fallbackSrc="http://10.1.8.90/iccs/assets/logo.63ae820a.png"
           />
           <Box
             shadow="lg"

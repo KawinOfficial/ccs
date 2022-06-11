@@ -43,7 +43,7 @@ export default function TreeModal({ isOpen, onClose }) {
               <GridItem>
                 <Image
                   srcSet={tree}
-                  fallbackSrc="http://10.1.8.124/iccs/assets/tree.71f7f4d8.jpg"
+                  fallbackSrc="http://10.1.8.90/iccs/assets/tree.71f7f4d8.jpg"
                   w="100%"
                   rounded="xl"
                   shadow="md"

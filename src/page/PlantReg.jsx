@@ -108,7 +108,7 @@ export default function PlantReg() {
                     <GridItem my={1}>
                       {j != 1 ? (
                         <FormControl variant="floating">
-                          <Input placeholder=" " />
+                          <Input placeholder=" " borderColor="gray.400" />
                           <FormLabel fontWeight="normal">{info.thai}</FormLabel>
                         </FormControl>
                       ) : (
@@ -122,7 +122,7 @@ export default function PlantReg() {
                     <GridItem my={1}>
                       {handleShowInput(info.eng) ? (
                         <FormControl variant="floating">
-                          <Input placeholder=" " />
+                          <Input placeholder=" " borderColor="gray.400" />
                           <FormLabel fontWeight="normal">{info.eng}</FormLabel>
                         </FormControl>
                       ) : (
@@ -135,7 +135,7 @@ export default function PlantReg() {
                 {/* Other Information */}
                 <GridItem my={1} colSpan={2}>
                   <FormControl variant="floating">
-                    <Textarea placeholder=" " rows={5} />
+                    <Textarea placeholder=" " rows={5} borderColor="gray.400" />
                     <FormLabel fontWeight="normal">
                       ข้อมูลอื่นๆ (Other information)
                     </FormLabel>

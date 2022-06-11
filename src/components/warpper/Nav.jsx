@@ -104,7 +104,7 @@ export default function Nav() {
           <Image
             h="3vh"
             srcSet={logo}
-            fallbackSrc="http://10.1.8.124/iccs/assets/logo.63ae820a.png"
+            fallbackSrc="http://10.1.8.90/iccs/assets/logo.63ae820a.png"
           />
           <Box color="green" display="flex" alignItems="center">
             <Text fontWeight="bold">iCarbon Credit System</Text>
