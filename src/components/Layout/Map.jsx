@@ -5,16 +5,7 @@ import WaterBank from "../img/waterBank.jpg";
 import Park from "../img/Park.jpg";
 import "./Map.css";
 
-import {
-  Box,
-  Button,
-  Text,
-  Accordion,
-  AccordionItem,
-  AccordionButton,
-  AccordionPanel,
-  AccordionIcon,
-} from "@chakra-ui/react";
+import { Box, Button, Text } from "@chakra-ui/react";
 import { geojson } from "../Data";
 
 mapboxgl.accessToken =
@@ -89,6 +80,16 @@ const zone = {
   },
 };
 
+const nameZone = [
+  "overview",
+  "zoneA",
+  "zoneB",
+  "zoneC",
+  "zoneD",
+  "park",
+  "waterBank",
+];
+
 export default function Map() {
   const mapContainer = useRef(null);
   const popupRef = useRef();
@@ -96,6 +97,7 @@ export default function Map() {
     lng: "",
     lat: "",
   });
+  const [hover, setHover] = useState(false);
 
   useEffect(() => {
     const map = new mapboxgl.Map({
@@ -117,6 +119,7 @@ export default function Map() {
     map.on("load", function () {
       map.addSource("Layout", {
         type: "image",
+        // url: "./assets/Layout3.368345cb.png",
         url: Layout,
         coordinates: [
           [101.08481, 12.89354],
@@ -139,6 +142,7 @@ export default function Map() {
 
       map.addSource("Park", {
         type: "image",
+        // url: "./assets/Park.08f83e78.jpg",
         url: Park,
         coordinates: [
           [101.095484, 12.884434],
@@ -161,6 +165,7 @@ export default function Map() {
 
       map.addSource("WaterBank", {
         type: "image",
+        // url: "./assets/waterBank.01fc20e5.jpg",
         url: WaterBank,
         coordinates: [
           [101.092742, 12.8662],
@@ -235,14 +240,24 @@ export default function Map() {
       }
 
       // Fly to function
-      buttonOption.map((info) =>
-        document
-          .getElementById(info.value)
-          .addEventListener("click", function () {
-            showLayer(info.value);
-            map.flyTo(zone[info.value]);
-          })
-      );
+      buttonOption.map((info) => {
+        var buttonFly = document.getElementById(info.value);
+        buttonFly.addEventListener("click", function () {
+          showLayer(info.value);
+          map.flyTo(zone[info.value]);
+        });
+      });
+
+      var count = 0;
+      setInterval(() => {
+        if (count > 6) {
+          count = 0;
+        }
+        if (!hover) {
+          document.getElementById(nameZone[count]).click();
+          count += 1;
+        }
+      }, 6000);
     });
 
     map.on("style.load", function () {
@@ -288,8 +303,9 @@ export default function Map() {
         ref={mapContainer}
         className="map-container"
         rounded="2xl"
-        // shadow="md"
         h={{ base: "50vh", lg: "54vh", xl: "60vh" }}
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
       />
 
       {/* Popup */}

@@ -34,6 +34,32 @@ export const barData = [
     value: 2390,
   },
 ];
+export const barCarbon = [
+  {
+    name: "2017",
+    value: 2000,
+  },
+  {
+    name: "2018",
+    value: 2000,
+  },
+  {
+    name: "2019",
+    value: 1000,
+  },
+  {
+    name: "2020",
+    value: 4780,
+  },
+  {
+    name: "2021",
+    value: 1320,
+  },
+  {
+    name: "2022",
+    value: 1900,
+  },
+];
 
 export const areaData = [
   {
@@ -59,6 +85,32 @@ export const areaData = [
   {
     name: "2022",
     value: 16060,
+  },
+];
+export const areaCarbon = [
+  {
+    name: "2017",
+    value: 2000,
+  },
+  {
+    name: "2018",
+    value: 4000,
+  },
+  {
+    name: "2019",
+    value: 5000,
+  },
+  {
+    name: "2020",
+    value: 9780,
+  },
+  {
+    name: "2021",
+    value: 11100,
+  },
+  {
+    name: "2022",
+    value: 13000,
   },
 ];
 

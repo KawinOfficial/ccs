@@ -104,7 +104,7 @@ export default function Nav() {
           <Image
             h="3vh"
             srcSet={logo}
-            fallbackSrc="http://10.1.8.90/iccs/assets/logo.63ae820a.png"
+            fallbackSrc="https://rct-dev.com/iccs/assets/logo.63ae820a.png"
           />
           <Box color="green" display="flex" alignItems="center">
             <Text fontWeight="bold">iCarbon Credit System</Text>
@@ -123,7 +123,7 @@ export default function Nav() {
             animate="visible"
           >
             <Box display="flex" gap={5} mr={2} alignItems="center">
-              {/* {window.location.pathname == "/iccs/snc-layout" && ( */}
+              {/* {window.location.pathname == "https://rct-dev.com/iccs/snc-layout" && ( */}
               <Search w="35%" />
               {/* )} */}
               <ExportButton w="30%" />

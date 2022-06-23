@@ -137,14 +137,22 @@ const COLORS = [
   "#eee",
 ];
 
-export default function OverallChart() {
+export default function OverallChart({ indexs }) {
   const [state, setState] = useState({ activeIndex: "" });
+  const [hover, setHover] = useState(false);
 
   const onPieEnter = (_, index) => {
+    setHover(true);
     setState({
       activeIndex: index,
     });
   };
+
+  if (!hover && indexs != state.activeIndex) {
+    setState({
+      activeIndex: indexs,
+    });
+  }
 
   const vh = (v) => {
     var h = Math.max(
@@ -170,6 +178,8 @@ export default function OverallChart() {
             outerRadius={80}
             dataKey="value"
             onMouseEnter={onPieEnter}
+            onMouseLeave={() => setHover(false)}
+            animationDuration={800}
           >
             {treeData.map((entry, index) => (
               <Cell

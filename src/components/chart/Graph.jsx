@@ -9,7 +9,7 @@ import {
   Area,
   ResponsiveContainer,
 } from "recharts";
-import { barData, areaData } from "../Data";
+import { barData, areaData, areaCarbon, barCarbon } from "../Data";
 
 const customizedLabel = ({ x, y, value }) => {
   var textLabel = value.toString().split("");
@@ -31,7 +31,7 @@ const customizedLabel = ({ x, y, value }) => {
   );
 };
 
-export default function Graph({ color, legendArea, legendBar }) {
+export default function Graph({ color, legendArea, legendBar, data }) {
   const vh = (v) => {
     var h = Math.max(
       document.documentElement.clientHeight,
@@ -55,7 +55,7 @@ export default function Graph({ color, legendArea, legendBar }) {
       {/* AreaChart */}
       <ResponsiveContainer height={vh(20)}>
         <AreaChart
-          data={areaData}
+          data={data == "carbon" ? areaCarbon : areaData}
           margin={{ top: 20, right: 20, left: 20, bottom: 0 }}
         >
           {/* Color gradient */}
@@ -77,6 +77,7 @@ export default function Graph({ color, legendArea, legendBar }) {
             stroke="none"
             fill={`url(${color})`}
             label={customizedLabel}
+            animationDuration={500}
           />
         </AreaChart>
       </ResponsiveContainer>
@@ -95,7 +96,7 @@ export default function Graph({ color, legendArea, legendBar }) {
       {/* BarChart */}
       <ResponsiveContainer height={vh(21)}>
         <BarChart
-          data={barData}
+          data={data == "carbon" ? barCarbon : barData}
           margin={{
             top: 20,
             right: 30,
@@ -110,6 +111,7 @@ export default function Graph({ color, legendArea, legendBar }) {
             label={customizedLabel}
             radius={[20, 20, 20, 20]}
             barSize={20}
+            animationDuration={500}
           />
         </BarChart>
       </ResponsiveContainer>

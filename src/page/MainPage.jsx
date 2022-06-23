@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Grid,
   GridItem,
@@ -13,6 +13,27 @@ import { Map, LayoutInfo, LayoutTable } from "../components/Layout";
 
 export default function FactoryLayout() {
   const [tab, setTab] = useState(true);
+  const [indexs, setIndexs] = useState(0);
+
+  const setIndexPie = () => {
+    setIndexs((sum) => sum + 1);
+  };
+  const resetIndex = () => {
+    setIndexs(0);
+  };
+
+  if (indexs > 7) {
+    resetIndex();
+  }
+
+  useEffect(() => {
+    const timer5s = setInterval(() => {
+      setIndexPie();
+    }, 5000);
+    return () => {
+      clearInterval(timer5s);
+    };
+  }, []);
 
   return (
     <>
@@ -36,7 +57,7 @@ export default function FactoryLayout() {
             >
               ประเภทต้นไม้ (Tree Type)
             </Text>
-            <OverallChart />
+            <OverallChart indexs={indexs} />
           </Box>
 
           <Tabs variant="enclosed" size="sm" isFitted my={1}>
@@ -52,6 +73,7 @@ export default function FactoryLayout() {
                 color="#B1DE80"
                 legendArea="ปริมาณต้นไม้สะสม+(Tree Volume)"
                 legendBar="ปริมาณต้นไม้ปลูกใหม่+(New Planted Volume)"
+                data="tree"
               />
             </Box>
           ) : (
@@ -60,6 +82,7 @@ export default function FactoryLayout() {
                 color="#63C6FF"
                 legendArea="คาร์บอนเครดิตสะสม+(Carbon Credit: MtCO2)"
                 legendBar="คาร์บอนเครดิต / ปี+(Carbon Credit / Year)"
+                data="carbon"
               />
             </Box>
           )}
