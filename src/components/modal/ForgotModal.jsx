@@ -39,7 +39,7 @@ export default function ForgotModal({ isOpen, onClose }) {
               <Input
                 id="username"
                 type="text"
-                //  placeholder="Type your username"
+                placeholder="Type your username"
                 variant="filled"
               />
               <FormLabel fontWeight="semibold" mt={5}>
@@ -48,7 +48,7 @@ export default function ForgotModal({ isOpen, onClose }) {
               <Input
                 id="email"
                 type="email"
-                //  placeholder="Type your email"
+                placeholder="Type your email"
                 variant="filled"
               />
             </FormControl>

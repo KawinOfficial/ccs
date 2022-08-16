@@ -1,27 +1,28 @@
 import React from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
-import { Login, MainPage, Export, PlantReg } from "./page";
-import ContentWarpper from "./components/warpper/ContentWarpper";
+import { Home, Login, ConfigEq, Export, Register } from "./page";
+import ContentWarp from "./components/wrapper/ContentWarp";
+import CallAPI from "./components/CallAPI";
+import CallEquation from "./components/CallEquation";
 
-import "./App.css";
 import "react-datepicker/dist/react-datepicker.min.css";
 import "mapbox-gl/dist/mapbox-gl.css";
+import "sweetalert2/dist/sweetalert2.min.css";
+import "./App.css";
 
 export default function App() {
   const location = useLocation();
+
   return (
     <>
+      <CallAPI />
+      <CallEquation />
       <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<Login />} />
-        <Route
-          path="/snc-layout"
-          element={<ContentWarpper content={MainPage} />}
-        />
-        <Route path="/export" element={<ContentWarpper content={Export} />} />
-        <Route
-          path="/register"
-          element={<ContentWarpper content={PlantReg} />}
-        />
+        <Route path="/" element={<ContentWarp content={Home} />} />
+        <Route path="/setting" element={<ContentWarp content={ConfigEq} />} />
+        <Route path="/export" element={<ContentWarp content={Export} />} />
+        <Route path="/register" element={<ContentWarp content={Register} />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </>
   );
