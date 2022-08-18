@@ -53,7 +53,7 @@ const tableHead = [
 ];
 
 const infoOption = [
-  { text: "พื้นที่ทั้งหมด", unit: "ไร่", value: "X,XXX.XX" },
+  { text: "พื้นที่ทั้งหมด", unit: "ไร่", value: "329.75" },
   { text: "พื้นที่สีเขียว", unit: "ไร่", value: "XXX.XX" },
   { text: "อัตราส่วนต้นไม้ต่อพื้นที่สีเขียว", unit: "%", value: "XX.XX" },
   { text: "ปริมาณคาร์บอน", unit: "tCO2", value: "XX.XX" },
